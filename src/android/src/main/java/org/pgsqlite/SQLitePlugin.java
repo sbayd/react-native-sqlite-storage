@@ -886,6 +886,7 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
 
         DBRunner(final String dbname, final String password, ReadableMap options, CallbackContext cbc) {
             this.dbname = dbname;
+            this.password = password;
             int openFlags = DatabaseConnectionProvider.OPEN_READWRITE | DatabaseConnectionProvider.CREATE_IF_NECESSARY;
             try {
                 this.assetFilename = SQLitePluginConverter.getString(options,"assetFilename",null);
@@ -908,13 +909,6 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
         public void run() {
             try {
                 this.mydb = openDatabase(dbname, password, this.assetFilename, this.openFlags, this.openCbc);
-            } catch (Exception ex) {
-                FLog.e(TAG, "SQLite error opening database, stopping db thread", ex);
-                if (this.openCbc != null) {
-                    this.openCbc.error("Can't open database." + ex);
-                }
-                dbrmap.remove(dbname);
-                return;
             } catch (Exception ex) {
                 FLog.e(TAG, "Unexpected error opening database, stopping db thread", ex);
                 if (openCbc != null) {
