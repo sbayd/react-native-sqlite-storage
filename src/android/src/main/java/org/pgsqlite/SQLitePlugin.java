@@ -625,7 +625,7 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
                         rowsAffected = myStatement.executeUpdateDelete();
                         // Indicate valid results:
                         needRawQuery = false;
-                    } catch (SQLiteException ex) {
+                    } catch (Exception ex) {
                         // Indicate problem & stop this query:
                         errorMessage = ex.getMessage();
                         FLog.e(TAG, "SQLiteStatement.executeUpdateDelete() failed", ex);
@@ -908,7 +908,7 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
         public void run() {
             try {
                 this.mydb = openDatabase(dbname, password, this.assetFilename, this.openFlags, this.openCbc);
-            } catch (SQLiteException ex) {
+            } catch (Exception ex) {
                 FLog.e(TAG, "SQLite error opening database, stopping db thread", ex);
                 if (this.openCbc != null) {
                     this.openCbc.error("Can't open database." + ex);
