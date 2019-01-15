@@ -5,7 +5,6 @@
  */
 package org.pgsqlite;
 
-import android.app.Activity;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -20,15 +19,13 @@ import java.util.List;
 
 public class SQLitePluginPackage implements ReactPackage {
 
-    /**
-     * @deprecated, use method without activity
-     * activity parameter is ignored
-     */
-    public SQLitePluginPackage(Activity activity){
-        this();
+    public SQLitePluginPackage() {
+        // Standard Android implementation is used by default
+        this(new DefaultConnectionProvider());
     }
 
-    public SQLitePluginPackage() {
+    public SQLitePluginPackage(DatabaseConnectionProvider provider) {
+        this.provider = provider;
     }
 
     @Override
@@ -36,7 +33,7 @@ public class SQLitePluginPackage implements ReactPackage {
                                 ReactApplicationContext reactContext) {
       List<NativeModule> modules = new ArrayList<>();
 
-      modules.add(new SQLitePlugin(reactContext));
+      modules.add(new SQLitePlugin(reactContext, this.provider));
 
       return modules;
     }
