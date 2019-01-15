@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SQLitePluginPackage implements ReactPackage {
+    private final DatabaseConnectionProvider provider;
 
     public SQLitePluginPackage() {
         // Standard Android implementation is used by default
