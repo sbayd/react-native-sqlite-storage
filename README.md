@@ -149,7 +149,7 @@ project(':react-native-sqlite-storage').projectDir = new File(rootProject.projec
 
 dependencies {
     ...
-    compile project(':react-native-sqlite-storage')
+    implementation project(':react-native-sqlite-storage')
 }
 ```
 
@@ -200,7 +200,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new SQLitePluginPackage(),   // register SQLite Plugin here
-        new MainReactPackage())
+        new MainReactPackage());
     }
 }
 ```
@@ -365,7 +365,7 @@ dbMaster.detach( 'second', successCallback, errorCallback );
 For sure, their is also Promise-support available for attach() and detach(), as shown in the example-application under the
 directory "examples".
 
-# Original Cordova SQLite Bindings from Chris Brody
+# Original Cordova SQLite Bindings from Chris Brody and Davide Bertola
 https://github.com/litehelpers/Cordova-sqlite-storage
 
 The issues and limitations for the actual SQLite can be found on this site.
