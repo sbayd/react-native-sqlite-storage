@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682F67C0BEF314A847219053 /* libPods-SQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B94256F39AB1DCBE42314AF /* libPods-SQLite.a */; };
 		C7DCD6E41BE0295900F3300E /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = C7DCD6E21BE0295900F3300E /* SQLite.h */; };
 		C7DCD6E51BE0295A00F3300E /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD6E31BE0295900F3300E /* SQLite.m */; };
 		C7DCD7141BE2D5DE00F3300E /* SQLiteResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DCD7131BE2D5DE00F3300E /* SQLiteResult.m */; };
@@ -25,11 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F496584A17D5B822970A554 /* Pods-SQLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLite.release.xcconfig"; path = "Target Support Files/Pods-SQLite/Pods-SQLite.release.xcconfig"; sourceTree = "<group>"; };
+		3B94256F39AB1DCBE42314AF /* libPods-SQLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SQLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DCD6E21BE0295900F3300E /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
 		C7DCD6E31BE0295900F3300E /* SQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLite.m; sourceTree = "<group>"; };
 		C7DCD7131BE2D5DE00F3300E /* SQLiteResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteResult.m; sourceTree = "<group>"; };
 		C7DCD7151BE2D61E00F3300E /* SQLiteResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLiteResult.h; sourceTree = "<group>"; };
 		E23D7B471ACEFE2A00C59171 /* libSQLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSQLite.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43070FF5CD8C8753682101A /* Pods-SQLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLite.debug.xcconfig"; path = "Target Support Files/Pods-SQLite/Pods-SQLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,12 +41,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682F67C0BEF314A847219053 /* libPods-SQLite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C97A49ADB6C9A321064160F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E43070FF5CD8C8753682101A /* Pods-SQLite.debug.xcconfig */,
+				2F496584A17D5B822970A554 /* Pods-SQLite.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B16A298A897D7FC63D402652 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B94256F39AB1DCBE42314AF /* libPods-SQLite.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7DCD6E11BE0293D00F3300E /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +82,8 @@
 			children = (
 				C7DCD6E11BE0293D00F3300E /* SQLite */,
 				E23D7B481ACEFE2A00C59171 /* Products */,
+				5C97A49ADB6C9A321064160F /* Pods */,
+				B16A298A897D7FC63D402652 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -90,6 +115,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E23D7B5B1ACEFE2A00C59171 /* Build configuration list for PBXNativeTarget "SQLite" */;
 			buildPhases = (
+				DE8C121170A46C99109CDC86 /* [CP] Check Pods Manifest.lock */,
 				E23D7B431ACEFE2A00C59171 /* Sources */,
 				E23D7B441ACEFE2A00C59171 /* Frameworks */,
 				E23D7B451ACEFE2A00C59171 /* CopyFiles */,
@@ -134,6 +160,31 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE8C121170A46C99109CDC86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SQLite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E23D7B431ACEFE2A00C59171 /* Sources */ = {
@@ -243,6 +294,7 @@
 		};
 		E23D7B5C1ACEFE2A00C59171 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E43070FF5CD8C8753682101A /* Pods-SQLite.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -260,6 +312,7 @@
 		};
 		E23D7B5D1ACEFE2A00C59171 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F496584A17D5B822970A554 /* Pods-SQLite.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
