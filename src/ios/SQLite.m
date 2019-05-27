@@ -217,7 +217,6 @@ RCT_EXPORT_METHOD(open: (NSDictionary *) options success:(RCTResponseSenderBlock
           sqlite3_create_function(db, "regexp", 2, SQLITE_ANY, NULL, &sqlite_regexp, NULL, NULL);
           const char *key = NULL;
           
-#ifdef SQLCIPHER
           NSString *dbkey = options[@"key"];
           if (dbkey != NULL) {
             key = [dbkey UTF8String];
@@ -225,7 +224,6 @@ RCT_EXPORT_METHOD(open: (NSDictionary *) options success:(RCTResponseSenderBlock
               sqlite3_key(db, key, strlen(key));
             }
           }
-#endif
           // Attempt to read the SQLite master table [to support SQLCipher version]:
           if(sqlite3_exec(db, (const char*)"SELECT count(*) FROM sqlite_master;", NULL, NULL, NULL) == SQLITE_OK) {
             NSValue *dbPointer = [NSValue valueWithPointer:db];
